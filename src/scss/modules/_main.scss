@@ -60,6 +60,8 @@
 	&-rotate-180 {transform: rotate(180deg);}
 	&-rotate-270 {transform: rotate(270deg);}
 }
+
+
 .app {
 	display: flex;
 	flex-direction: column;
@@ -67,20 +69,66 @@
 	justify-content: center;
 	height: 100vh;
 }
-.circle{
+
+.circle {
+	position: relative;
 	width: var(--circle-size);
 	height: var(--circle-size);
-	background-color: blue;
+	background-color: transparent;
+	border: 1px solid var(--second-color);
 	border-radius: 50%;
-	position: relative;
+	counter-reset: num;
 }
 
-.list-item{
+.list-item {
+	
 	position: absolute;
 	top: calc(50% - var(--circle-item-size) / 2);
 	left: calc(50% - var(--circle-item-size) / 2);
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: var(--circle-item-size);
 	height: var(--circle-item-size);
-	background-color: red;
-	list-style: none;
+	background-color: var(--second-color);
+	border-radius: 50%;
+	list-style-type: none;
+	transition: $trans;
+	counter-increment: num;
+
+	&::before {
+		content: counter(num);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		font-size: 0;
+		opacity: 0;
+		transition: $trans;
+	}
+	&:after {
+		content: '';
+		position: absolute;
+		inset: -10px;
+	}
+
+	> span {
+		position: absolute;
+		top: 50%;
+		right: -20px;
+		font-size: 20px;
+		pointer-events: none;
+		transition: all 0.2s ease-out;
+		transform: translate(100%, -50%);
+	}
+	&:hover  {
+		--circle-item-size: 56px;
+		font-size: 20px;
+		background-color: var(--second-light-color);
+		border: 1px solid #303E5880;
+		&::before {
+			font-size: 20px;
+			opacity: 1;
+		}
+	}
 }

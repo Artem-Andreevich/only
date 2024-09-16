@@ -1,7 +1,8 @@
 import '../scss/styles.scss';
 
-
-const listItems = ['first el', 'first el', 'first el', 'first el', 'first el', 'first el']
+const listItems = ['first el', 'first el', 'first el']
+// const listItems = ['first el', 'first el', 'first el', 'first el', 'first el', 'first el']
+// const listItems = ['1', '2']
 
 
 export const App = () => {
@@ -15,9 +16,10 @@ export const App = () => {
 					return (
 						<li 
 							className='list-item' 
-							style={{transform: `rotate(${rotateAngle - startPos}deg) translate(0, calc(var(--circle-size) / 2)) rotate(${-rotateAngle + startPos}deg)`}}
+							// style={{transform: `rotate(${rotateAngle - startPos}deg) translate(0, 215px ) rotate(${-rotateAngle + startPos}deg)`}}
+							style={{transform: `rotate(${rotateAngle - startPos}deg) translate(0, calc( (var(--circle-size) - (var(--circle-item-size) / 10) ) / 2)) rotate(${-rotateAngle + startPos}deg)`}}
 						>
-							{el}
+							<span>{el}</span>
 						</li>
 					)
 				})}
