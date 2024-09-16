@@ -355,8 +355,8 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: var(--circle-item-size);
-  height: var(--circle-item-size);
+  width: var(--circle-item-size) !important;
+  height: var(--circle-item-size) !important;
   background-color: var(--second-color);
   border-radius: 50%;
   list-style-type: none;
@@ -396,6 +396,35 @@ footer {
 .list-item:hover::before {
   font-size: 20px;
   opacity: 1;
+}
+
+.swiper {
+  overflow: visible;
+}
+
+.swiper-wrapper {
+  position: relative;
+  width: var(--circle-size) !important;
+  height: var(--circle-size) !important;
+  background-color: transparent;
+  border: 1px solid var(--second-color);
+  border-radius: 50%;
+  counter-reset: num;
+}
+
+.swiper-slide {
+  position: absolute;
+  top: calc(50% - var(--circle-item-size) / 2);
+  left: calc(50% - var(--circle-item-size) / 2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--circle-item-size) !important;
+  height: var(--circle-item-size) !important;
+  background-color: var(--second-color);
+  border-radius: 50%;
+  list-style-type: none;
+  transition: all 0.2s ease-out;
 }
 
 @media (max-width: 1199px) and (min-width: 0px) {
